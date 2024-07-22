@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>ゴンと一緒にジャジャン拳！！</title>
+</head>
+<body>
+
+<header>
+ <div class="flex">
+    
+    <div class="gon">
+        <img src="img\gon.jpg" alt="gon">
+    </div>
+    
+    
+    <div class="hdcenter">
+        <h1>ゴンと一緒にジャジャン拳！！</h1>
+    </div>
+
+ </div>
+
+</header>
+
+<main>
+ 
+ 
+ 
+
+  <ul>
+    <li id="gu_btn"><img src="img\rock.jpeg" alt=""></li>
+    <li id="cho_btn"><img src="img\scissor.jpeg" alt=""></li>
+    <li id="par_btn"><img src="img\paper.jpeg" alt=""></li>
+  </ul>
+  <div class="computer">
+    <span id="pc_hands"></span>
+  </div>
+  
+
+  <audio id="win_audio">
+    <source src="./sounds\ドンドンパフパフ.mp3" type="audio/mp3">
+  </audio>
+
+  <audio id="draw_audio">
+  <source src="./sounds\間抜け3.mp3" type="audio/mp3">
+  </audio>
+
+  <audio id="lose_audio">
+  <source src="./sounds\間抜け5.mp3" type="audio/mp3">
+  </audio>
+
+
+ 
+  <div id="judgment"></div>
+</main>
+
+<footer></footer>
+<script>
+//じゃんけん用のSCRIPTを書いてください
+
+// // グー=1
+// チョキ=2
+// パー=3
+
+const gu_btn = 1;
+const cho_btn = 2;
+const par_btn = 3;
+  
+
+
+$(document).ready(function() {
+    $("#gu_btn").on("click", function() {
+        const r = Math.random() * 3; // 0.000001~0.999999
+        const n = Math.ceil(r);      // 1, 2, or 3
+        console.log(n);
+
+        let pcHandSrc = '';
+        let judgmentSrc = '';
+        let soundId = '';
+
+        if (n == 1) {
+            pcHandSrc = 'img/rock.jpeg';
+            judgmentSrc = 'img/draw1.png';
+            soundId = 'draw_audio';
+        } else if (n == 2) {
+            pcHandSrc = 'img/scissor.jpeg';
+            judgmentSrc = 'img/youwin2.jpg';
+            soundId = 'win_audio';
+        } else if (n == 3) {
+            pcHandSrc = 'img/paper.jpeg';
+            judgmentSrc = 'img/youlose2.jpg';
+            soundId = 'lose_audio';
+        }
+
+        // pc_handsとjudgmentの画像を更新
+        $("#pc_hands").html(`<img src="${pcHandSrc}" alt="">`);
+        $("#judgment").html(`<img src="${judgmentSrc}" alt="">`);
+
+        // judgmentの画像がロードされたら対応する音声を再生
+        $("#judgment img").on("load", function() {
+            document.getElementById(soundId).play();
+        });
+    });
+});
+
+
+
+$(document).ready(function() {
+    $("#cho_btn").on("click", function() {
+        const r = Math.random() * 3; // 0.000001~0.999999
+        const n = Math.ceil(r);      // 1, 2, or 3
+        console.log(n);
+
+        let pcHandSrc = '';
+        let judgmentSrc = '';
+        let soundId = '';
+
+        if (n == 1) {
+            pcHandSrc = 'img/rock.jpeg';
+            judgmentSrc = 'img/youlose2.jpg';
+            soundId = 'lose_audio';
+        } else if (n == 2) {
+            pcHandSrc = 'img/scissor.jpeg';
+            judgmentSrc = 'img/draw1.png';
+            soundId = 'draw_audio';
+        } else if (n == 3) {
+            pcHandSrc = 'img/paper.jpeg';
+            judgmentSrc = 'img/youwin2.jpg';
+            soundId = 'win_audio';
+        }
+
+        // pc_handsとjudgmentの画像を更新
+        $("#pc_hands").html(`<img src="${pcHandSrc}" alt="">`);
+        $("#judgment").html(`<img src="${judgmentSrc}" alt="">`);
+
+        // judgmentの画像がロードされたら対応する音声を再生
+        $("#judgment img").on("load", function() {
+            document.getElementById(soundId).play();
+        });
+    });
+});
+
+
+$(document).ready(function() {
+    $("#par_btn").on("click", function() {
+        const r = Math.random() * 3; // 0.000001~0.999999
+        const n = Math.ceil(r);      // 1, 2, or 3
+        console.log(n);
+
+        let pcHandSrc = '';
+        let judgmentSrc = '';
+        let soundId = '';
+
+        if (n == 1) {
+            pcHandSrc = 'img/rock.jpeg';
+            judgmentSrc = 'img/youwin2.jpg';
+            soundId = 'win_audio';
+        } else if (n == 2) {
+            pcHandSrc = 'img/scissor.jpeg';
+            judgmentSrc = 'img/youlose2.jpg';
+            soundId = 'lose_audio';
+        } else if (n == 3) {
+            pcHandSrc = 'img/paper.jpeg';
+            judgmentSrc = 'img/draw1.png';
+            soundId = 'draw_audio';
+        }
+
+        // pc_handsとjudgmentの画像を更新
+        $("#pc_hands").html(`<img src="${pcHandSrc}" alt="">`);
+        $("#judgment").html(`<img src="${judgmentSrc}" alt="">`);
+
+        // judgmentの画像がロードされたら対応する音声を再生
+        $("#judgment img").on("load", function() {
+            document.getElementById(soundId).play();
+        });
+    });
+    
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+</script>
+</body>
+</html>
